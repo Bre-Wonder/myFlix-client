@@ -1,0 +1,19 @@
+{
+  "name": "myflix-client",
+  "version": "1.0.0",
+  "description": "dependancies for project",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bre-Wonder/myFlix-client.git"
+  },
+  "author": "Bre-Wonder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bre-Wonder/myFlix-client/issues"
+  },
+  "homepage": "https://github.com/Bre-Wonder/myFlix-client#readme"
+}
