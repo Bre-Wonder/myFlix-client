@@ -13,16 +13,24 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password
     };
 
-    fetch("", {
+    fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
-    }).then((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
-      } else {
-        alert("Login Failed");
-      }
-    });
+    }).then((response) => response())
+      .then((data) => {
+        console.log("Login response: ", data);
+        if (data.user) {
+          onLoggedIn(data.user, data.token);
+        } else {
+          alert("no such user");
+        }
+      })
+      .catch((e) => {
+        alert("Somthing went wrong");
+      });
   };
 
   return (
