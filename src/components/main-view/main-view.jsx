@@ -7,11 +7,10 @@ import { SignUpView } from "../signup-view/signup-view";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [movies, setMovies] = useState ([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-
+  const [movies, setMovies] = useState ([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (!token) {
@@ -19,11 +18,11 @@ export const MainView = () => {
     }
 
     fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies", 
-      {headers: { Authorization: `Bearer ${token}`}
+      {headers: { Authorization: `Bearer ${token}`},
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data); 
+      .then((movies) => {
+        setMovies(movies); 
       });
     }, [token]);
 
