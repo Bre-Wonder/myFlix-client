@@ -12,22 +12,18 @@ export const MainView = () => {
 
 
   useEffect(() => {
-    fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies")
+    if (!token) {
+      return;
+    }
+
+    fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies", 
+      {headers: { Authorization: `Bearer ${token}`}
+    })
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.docs.map((doc) => {
-          return {
-            id: doc.key,
-            title: doc.title,
-            genre: doc.genre_name?.[0],
-            director: doc.director_name?.[0],
-            image: `https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/`,
-          };
-        });
-
-        setMovies(moviesFromApi);
+        console.log(data); 
       });
-    }, []);
+    }, [token]);
 
   
 
@@ -58,6 +54,7 @@ export const MainView = () => {
         <button
           onClick={() => {
             setUser(null);
+            setToken(null);
           }}
         >
           Logout
