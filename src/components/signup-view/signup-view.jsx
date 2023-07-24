@@ -72,6 +72,7 @@ return (
       required
       />
     </label>
+    <button type="submit">Sign Up</button>
   </form>
   );
 };
