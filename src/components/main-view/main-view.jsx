@@ -6,8 +6,10 @@ import { SignUpView } from "../signup-view/signup-view";
 
 export const MainView = () => {
   const [movies, setMovies] = useState ([]);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
+
+
   useEffect(() => {
     fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies")
       .then((response) => response.json())
@@ -21,9 +23,25 @@ export const MainView = () => {
             image: `https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/`,
           };
         });
+
         setMovies(moviesFromApi);
       });
     }, []);
+
+  if (!user) {
+    return (
+      <>
+        <LoginView
+          onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+          }}
+          />
+          or
+        <SignUpView />
+      </>
+    );
+  }
 
   if(selectedMovie) {
     return (
@@ -32,8 +50,19 @@ export const MainView = () => {
   }
 
   if (movies.length === 0) {
-    return <div>This List is Empty!</div>
-  }
+    return (
+      <>
+        <button
+          onClick={() => {
+            setUser(null);
+          }}
+        >
+          Logout
+        </button>
+        <div>This List is Empty!</div>
+      </>
+    );
+  };
 
   return (
     <div>
