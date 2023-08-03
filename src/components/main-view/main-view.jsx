@@ -1,27 +1,47 @@
 import { useEffect, useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import { SignUpView } from "../signup-view/signup-view";
 
 export const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
   const [movies, setMovies] = useState ([]);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
+
   useEffect(() => {
-    fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies")
+    if (!token) {
+      return;
+    }
+
+    fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies", 
+      {headers: { Authorization: `Bearer ${token}`},
+    })
       .then((response) => response.json())
-      .then((data) => {
-        const moviesFromApi = data.docs.map((doc) => {
-          return {
-            id: doc.key,
-            title: doc.title,
-            genre: doc.genre_name?.[0],
-            director: doc.director_name?.[0],
-            image: `https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/`,
-          };
-        });
-        setMovies(moviesFromApi);
+      .then((movies) => {
+        setMovies(movies); 
       });
-    }, []);
+    }, [token]);
+
+  
+
+  if (!user) {
+    return (
+      <>
+        <LoginView
+          onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+          }}
+          />
+          or
+        <SignUpView />
+      </>
+    );
+  }
 
   if(selectedMovie) {
     return (
@@ -30,11 +50,25 @@ export const MainView = () => {
   }
 
   if (movies.length === 0) {
-    return <div>This List is Empty!</div>
-  }
+    return (
+      <>
+        <button
+          onClick={() => {
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
+          }}
+        >
+          Logout
+        </button>
+        <div>This List is Empty!</div>
+      </>
+    );
+  };
 
   return (
     <div>
+      <div>
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
@@ -44,6 +78,18 @@ export const MainView = () => {
           }}
         />
       ))}
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
+          }}
+          >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };
