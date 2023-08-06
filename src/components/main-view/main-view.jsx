@@ -26,71 +26,61 @@ export const MainView = () => {
         setMovies(movies); 
       });
     }, [token]);
-
-  
-
-  if (!user) {
+    
     return (
-      <>
-        <LoginView
-          onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-          }}
-          />
-          or
-        <SignUpView />
-      </>
-    );
-  }
-
-  if(selectedMovie) {
-    return (
-      <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-    );
-  }
-
-  if (movies.length === 0) {
-    return (
-      <>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </button>
-        <div>This List is Empty!</div>
-      </>
-    );
-  };
-
-  return (
-    <div>
-      <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-      </div>
-      <div>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-          >
-          Logout
-        </button>
-      </div>
-    </div>
-  );
+      <Row>
+        {!user ? (
+          <>
+            <LoginView
+              onLoggedIn={(user, token) => {
+                setUser(user);
+                setToken(token);
+              }}
+              />
+              or
+            <SignUpView />
+          </>
+        ) : selectedMovie ? (
+          <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        ) : movies.length === 0 ? (
+          <>
+            <button
+              onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}
+            >
+              Logout
+            </button>
+            <div>This List is Empty!</div>
+          </>
+        ) : (
+          <>
+            <div>
+            {movies.map((movie) => (
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            ))}
+            </div>
+            <div>
+              <button
+                onClick={() => {
+                  setUser(null);
+                  setToken(null);
+                  localStorage.clear();
+                }}
+                >
+                Logout
+              </button>
+            </div>
+          </>
+        )};  
+      </Row>
+    );  
 };
