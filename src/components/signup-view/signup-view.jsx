@@ -18,7 +18,7 @@ export const SignUpView = () => {
     };
 
   fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users", {
-    method: "POST"
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
