@@ -6,7 +6,7 @@ import "./index.scss";
 
 const myFlixApplication = () => {
   return (
-    <Container>
+    <Container className="Container">
       <MainView />
     </Container>
   );
