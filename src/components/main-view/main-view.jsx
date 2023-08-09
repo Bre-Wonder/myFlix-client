@@ -5,6 +5,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignUpView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import { Col } from "react-bootstrap";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
