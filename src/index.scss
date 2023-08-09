@@ -1,7 +1,13 @@
 $color: #FF00FF;
 
+@import '~bootstrap/scss/bootstrap.scss';
+
 .my-flix {
   color: $color;
+}
+
+.Container {
+  background-color: #697c8c;
 }
 
 
