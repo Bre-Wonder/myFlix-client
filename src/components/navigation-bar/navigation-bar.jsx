@@ -11,9 +11,18 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
         <Navbar.Toggle aria-controls="bassic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
-            <Nav.Link href="#home">Logout</Nav.Link>
+            {!user && (
+              <>
+                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
+              </>
+            )}
+            {user && (
+              <>
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
