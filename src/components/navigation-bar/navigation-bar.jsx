@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return(
