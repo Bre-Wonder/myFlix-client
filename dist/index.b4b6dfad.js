@@ -27349,6 +27349,7 @@ var _rowDefault = parcelHelpers.interopDefault(_row);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _navigationBar = require("../navigation-bar/navigation-bar");
+var _profileView = require("../profile-view/profile-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
@@ -27380,7 +27381,7 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 34,
+                lineNumber: 35,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -27401,7 +27402,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 44,
+                            lineNumber: 45,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27423,7 +27424,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 58,
+                            lineNumber: 59,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27446,7 +27447,22 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 77,
+                            lineNumber: 78,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/profile",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+                                    to: "/login",
+                                    replace: true
+                                }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
+                                    user: user
+                                }, void 0, false, void 0, void 0)
+                            }, void 0, false)
+                        }, void 0, false, {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 94,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27469,24 +27485,24 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 93,
+                            lineNumber: 106,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 43,
+                    lineNumber: 44,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 42,
+                lineNumber: 43,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 33,
+        lineNumber: 34,
         columnNumber: 7
     }, undefined);
 };
@@ -27500,7 +27516,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"kTrza","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4lGig","react":"21dqq","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-bootstrap/Row":"cMC39","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","../navigation-bar/navigation-bar":"bsPVM"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"kTrza","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4lGig","react":"21dqq","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-bootstrap/Row":"cMC39","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","../navigation-bar/navigation-bar":"bsPVM","../profile-view/profile-view":"2vVqf"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -47280,7 +47296,7 @@ var _nav = require("react-bootstrap/Nav");
 var _navDefault = parcelHelpers.interopDefault(_nav);
 var _navbar = require("react-bootstrap/Navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
-var _reactRouter = require("react-router");
+var _reactRouterDom = require("react-router-dom");
 const NavigationBar = ({ user, onLoggedOut })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {
         expand: "lg",
@@ -47288,7 +47304,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default).Brand, {
-                    as: (0, _reactRouter.Link),
+                    as: (0, _reactRouterDom.Link),
                     to: "/",
                     children: "My Flix App"
                 }, void 0, false, {
@@ -47311,7 +47327,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             !user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
-                                        as: (0, _reactRouter.Link),
+                                        as: (0, _reactRouterDom.Link),
                                         to: "/login",
                                         children: "Login"
                                     }, void 0, false, {
@@ -47320,7 +47336,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
-                                        as: (0, _reactRouter.Link),
+                                        as: (0, _reactRouterDom.Link),
                                         to: "/signup",
                                         children: "Signup"
                                     }, void 0, false, {
@@ -47333,7 +47349,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
-                                        as: (0, _reactRouter.Link),
+                                        as: (0, _reactRouterDom.Link),
                                         to: "/",
                                         children: "Home"
                                     }, void 0, false, {
@@ -47342,12 +47358,20 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
-                                        as: (0, _reactRouter.Link),
+                                        as: (0, _reactRouterDom.Link),
                                         to: "/profile",
-                                        children: "Profile"
+                                        children: "Profile2"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                         lineNumber: 24,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                        to: "/profile",
+                                        children: "Test"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 25,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
@@ -47355,7 +47379,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 25,
+                                        lineNumber: 26,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -47392,6 +47416,26 @@ $RefreshReg$(_c, "NavigationBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap/Container":"hEdsw","react-bootstrap/esm/NavbarToggle":"7vOXv","react-bootstrap/Nav":"cXyL2","react-bootstrap/Navbar":"1mHjo","@parcel/transformer-js/src/esmodule-helpers.js":"kTrza","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4lGig","react-router":"dbWyW"}]},["3VMp9","kbH7d","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap/Container":"hEdsw","react-bootstrap/esm/NavbarToggle":"7vOXv","react-bootstrap/Nav":"cXyL2","react-bootstrap/Navbar":"1mHjo","@parcel/transformer-js/src/esmodule-helpers.js":"kTrza","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4lGig","react-router-dom":"9xmpe"}],"2vVqf":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView);
+const ProfileView = ({ user })=>{
+    console.log(user);
+    return user.Username;
+} // Connect favorite button to ProfileView from MovieCard/Movie View
+ //   Be able to add movie
+ //   Delete a movie
+ // Apply Bootstrap
+ // Get Nav functionalities to work
+ // let favoriteMovies = movies.filter(m =>
+ //   user.FavoriteMovies.includs(m._id)
+ //     );
+;
+_c = ProfileView;
+var _c;
+$RefreshReg$(_c, "ProfileView");
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"kTrza"}]},["3VMp9","kbH7d","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
