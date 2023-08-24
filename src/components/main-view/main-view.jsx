@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import { Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -86,6 +87,18 @@ export const MainView = () => {
                     <Col md={8} style={{ border: "1px solid black" }}>
                       <MovieView movies={movies} />
                     </Col>
+                  )}             
+                </>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <ProfileView user={user}  />
                   )}             
                 </>
               }
