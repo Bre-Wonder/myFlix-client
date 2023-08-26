@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { Card } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 
 
@@ -37,12 +37,10 @@ let favoriteMovies = movies.filter(m =>
   user.FavoriteMovies.includs(m._id)
   );
 
-// Connect favorite button to ProfileView from MovieCard/Movie View
-//   Be able to add movie
-//   Delete a movie
-
+// Return User Information 
+// Update User Information 
+// Deregister a user 
+// Add movie to favorite list 
+// Delete mnove from favorite list 
+// Add button to movie card to add to list
 // Apply Bootstrap
-
-// let favoriteMovies = movies.filter(m =>
-//   user.FavoriteMovies.includs(m._id)
-//     );

@@ -47545,13 +47545,13 @@ _s(ProfileView, "r0rqsLfWJTH7w5cXk9h+Af0W8oI=", false, function() {
     ];
 });
 _c = ProfileView;
-let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includs(m._id)); // Connect favorite button to ProfileView from MovieCard/Movie View
- //   Be able to add movie
- //   Delete a movie
+let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includs(m._id)); // Return User Information 
+ // Update User Information 
+ // Deregister a user 
+ // Add movie to favorite list 
+ // Delete mnove from favorite list 
+ // Add button to movie card to add to list
  // Apply Bootstrap
- // let favoriteMovies = movies.filter(m =>
- //   user.FavoriteMovies.includs(m._id)
- //     );
 var _c;
 $RefreshReg$(_c, "ProfileView");
 
