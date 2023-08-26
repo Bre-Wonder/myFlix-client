@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { Card } from "react-bootstrap";
+import { MovieCard } from "../movie-card/movie-card";
 
 
 export const ProfileView = ({user}) => {
@@ -31,6 +32,10 @@ export const ProfileView = ({user}) => {
     </Card>
   );
 }
+
+let favoriteMovies = movies.filter(m =>
+  user.FavoriteMovies.includs(m._id)
+  );
 
 // Connect favorite button to ProfileView from MovieCard/Movie View
 //   Be able to add movie
