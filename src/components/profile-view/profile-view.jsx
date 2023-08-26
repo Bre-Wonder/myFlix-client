@@ -1,9 +1,29 @@
+import { useParams } from "react-router";
 
 
 export const ProfileView = ({user}) => {
-  console.log(user);
-  return (user.Username);
-
+  const { userUsername } = useParams();
+  const user = users.find((b) => b.id === userUsername);
+  return (
+    <div>
+      <div>
+        <span>Username: </span>
+        <img src={user.Username} className="w-100" />
+      </div>
+      <div>
+        <span>Password: </span>
+        <span>{user.Password}</span>
+      </div>
+      <div>
+        <span>Email: </span>
+        <span>{user.Email}</span>
+      </div>
+      <div>
+        <span>Birthdate: </span>
+        <span tyep="date">{user.Birthday}</span>
+      </div>
+    </div>
+  );
 }
 
 // Connect favorite button to ProfileView from MovieCard/Movie View
