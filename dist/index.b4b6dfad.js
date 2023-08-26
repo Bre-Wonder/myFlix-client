@@ -47423,8 +47423,8 @@ var _reactRouter = require("react-router");
 var _s = $RefreshSig$();
 const ProfileView = ({ user })=>{
     _s();
-    const { userUsername } = (0, _reactRouter.useParams)();
-    const user = users.find((b)=>b.id === userUsername);
+    const { userId } = (0, _reactRouter.useParams)();
+    const user = users.find((b)=>b.id === userId);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -47532,7 +47532,7 @@ const ProfileView = ({ user })=>{
  //   user.FavoriteMovies.includs(m._id)
  //     );
 ;
-_s(ProfileView, "5ZoSddeSPX/5n4GG+GLIdlD/VBE=", false, function() {
+_s(ProfileView, "r0rqsLfWJTH7w5cXk9h+Af0W8oI=", false, function() {
     return [
         (0, _reactRouter.useParams)
     ];

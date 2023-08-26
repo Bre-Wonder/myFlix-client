@@ -2,8 +2,8 @@ import { useParams } from "react-router";
 
 
 export const ProfileView = ({user}) => {
-  const { userUsername } = useParams();
-  const user = users.find((b) => b.id === userUsername);
+  const { userId } = useParams();
+  const user = users.find((b) => b.id === userId);
   return (
     <div>
       <div>
