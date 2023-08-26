@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 
 export const ProfileView = ({user}) => {
   const { userId } = useParams();
+  console.log(user);
+
   const user = users.find((b) => b.id === userId);
   return (
     <div>
