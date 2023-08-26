@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { Card } from "react-bootstrap";
 
 
 export const ProfileView = ({user}) => {
@@ -7,24 +8,27 @@ export const ProfileView = ({user}) => {
 
   const user = users.find((b) => b.id === userId);
   return (
-    <div>
-      <div>
-        <span>Username: </span>
-        <img src={user.Username} className="w-100" />
-      </div>
-      <div>
-        <span>Password: </span>
-        <span>{user.Password}</span>
-      </div>
-      <div>
-        <span>Email: </span>
-        <span>{user.Email}</span>
-      </div>
-      <div>
-        <span>Birthdate: </span>
-        <span tyep="date">{user.Birthday}</span>
-      </div>
-    </div>
+    <Card>
+      <Card.Body>
+        <Card.Title>User Information</Card.Title>
+        <div>
+          <Card.Text>Username: </Card.Text>
+          <Card.Text>{user.Username}</Card.Text>
+        </div>
+        <div>
+          <Card.Text>Password: </Card.Text>
+          <Card.Text>{user.Password}</Card.Text>
+        </div>
+        <div>
+          <Card.Text>Email: </Card.Text>
+          <Card.Text>{user.Email}</Card.Text>
+        </div>
+        <div>
+          <Card.Text>Birthdate: </Card.Text>
+          <Card.Text tyep="date">{user.Birthday}</Card.Text>
+        </div>
+      </Card.Body>
+    </Card>
   );
 }
 
@@ -33,8 +37,6 @@ export const ProfileView = ({user}) => {
 //   Delete a movie
 
 // Apply Bootstrap
-
-// Get Nav functionalities to work
 
 // let favoriteMovies = movies.filter(m =>
 //   user.FavoriteMovies.includs(m._id)
