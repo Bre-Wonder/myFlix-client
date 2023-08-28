@@ -27577,8 +27577,6 @@ const MovieCard = ({ movie })=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                        type: "button",
-                        className: "btn btn-info",
                         title: "Add Movie to Favorites List",
                         children: " + "
                     }, void 0, false, {
