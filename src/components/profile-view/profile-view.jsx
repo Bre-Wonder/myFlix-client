@@ -10,7 +10,7 @@ export const ProfileView = ({user}) => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>User Information</Card.Title>
+        <Card.Title>Profile Information</Card.Title>
         <div>
           <Card.Text>Username: </Card.Text>
           <Card.Text>{user.Username}</Card.Text>
