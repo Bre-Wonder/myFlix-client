@@ -12,12 +12,12 @@ import { ProfileView } from "../profile-view/profile-view";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(storedUser);
+  const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState ([]);
 
   useEffect(() => {
-    if (!token) {
+    if (!storedToken) {
       return;
     }
 
