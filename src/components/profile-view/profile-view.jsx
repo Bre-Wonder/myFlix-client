@@ -29,10 +29,9 @@ export const ProfileView = ({user}) => {
             </Form.Group>
           </Form>
         </div>
-        <div>
-          <Card.Text>Password: </Card.Text>
+        <Form>
+          <Form.Label>Password: </Form.Label>
           <Card.Text>{user.Password}</Card.Text>
-          <Form>
             <Form.Group controlId="formPassword">
               <Form.Control
                 type="text"
@@ -42,15 +41,32 @@ export const ProfileView = ({user}) => {
                 minLength="3"
               />
             </Form.Group>
-          </Form>
-        </div>
+        </Form>
         <div>
           <Card.Text>Email: </Card.Text>
-          <Card.Text>{user.Email}</Card.Text>
+          <Card.Text>{user.Email}</Card.Text> 
+          <Form>
+            <Form.Group controlId="formEmail">
+              <Form.Control
+                type="email"
+                value={email}
+                onChange={(e) => updateEmail(e.target.value)}
+                required
+                />
+            </Form.Group>
+          </Form>
         </div>
         <div>
           <Card.Text>Birthdate: </Card.Text>
           <Card.Text type="date">{user.Birthday}</Card.Text>
+          <Form.Group controlId="formBirthday">
+            <Form.Control
+              type="date"
+              value={birthday}
+              onChange={(e) => updateBirthday(e.target.value)}
+              required
+              />
+          </Form.Group>
         </div>
       </Card.Body>
     </Card>
