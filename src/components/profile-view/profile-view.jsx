@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { Card, Form } from "react-bootstrap";
+import { Card, Form, Button } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
