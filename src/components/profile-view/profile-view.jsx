@@ -16,10 +16,9 @@ export const ProfileView = ({user}) => {
     <Card>
       <Card.Body>
         <Card.Title>Profile Information</Card.Title>
-        <div>
-          <Card.Text>Username: </Card.Text>
+        <Form>
+          <Form.Label>Username: </Form.Label>
           <Card.Text>{user.Username}</Card.Text>
-          <Form>
             <Form.Group controlId="formUsername">
               <Form.Control
                 type="text"
@@ -29,8 +28,7 @@ export const ProfileView = ({user}) => {
                 minLength="3"
               />
             </Form.Group>
-          </Form>
-        </div>
+        </Form>
         <Form>
           <Form.Label>Password: </Form.Label>
           <Card.Text>{user.Password}</Card.Text>
@@ -44,10 +42,9 @@ export const ProfileView = ({user}) => {
               />
             </Form.Group>
         </Form>
-        <div>
-          <Card.Text>Email: </Card.Text>
+        <Form>
+          <Form.Label>Email: </Form.Label>
           <Card.Text>{user.Email}</Card.Text> 
-          <Form>
             <Form.Group controlId="formEmail">
               <Form.Control
                 type="email"
@@ -57,8 +54,7 @@ export const ProfileView = ({user}) => {
                 />
             </Form.Group>
           </Form>
-        </div>
-        <div>
+        <Form>
           <Card.Text>Birthdate: </Card.Text>
           <Card.Text type="date">{user.Birthday}</Card.Text>
           <Form.Group controlId="formBirthday">
@@ -69,7 +65,7 @@ export const ProfileView = ({user}) => {
               required
               />
           </Form.Group>
-        </div>
+        </Form>
       </Card.Body>
     </Card>
   );
