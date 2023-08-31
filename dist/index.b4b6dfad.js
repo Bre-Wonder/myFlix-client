@@ -27554,13 +27554,6 @@ const MovieCard = ({ movie })=>{
                         lineNumber: 11,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                        children: movie.Description
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 12,
-                        columnNumber: 9
-                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         to: `/movies/${encodeURIComponent(movie.id)}`,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
