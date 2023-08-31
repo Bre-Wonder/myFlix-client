@@ -8,6 +8,8 @@ export const ProfileView = ({user}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
+  const [ email, updateEmail ] = useState("");
+  const [ birthday, updateBirthday ] = useState("");
   console.log(user);
 
   return (
