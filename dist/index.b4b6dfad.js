@@ -47608,6 +47608,15 @@ const ProfileView = ({ user })=>{
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 57,
                     columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Button, {
+                    varient: "primary",
+                    type: "submit",
+                    children: "Update"
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 69,
+                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {

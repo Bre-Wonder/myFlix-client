@@ -66,6 +66,7 @@ export const ProfileView = ({user}) => {
               />
           </Form.Group>
         </Form>
+        <Button varient="primary" type="submit">Update</Button>
       </Card.Body>
     </Card>
   );
