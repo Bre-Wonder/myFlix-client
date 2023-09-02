@@ -10,7 +10,6 @@ export const ProfileView = ({user}) => {
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
-  console.log(user);
 
   return (
     <Card>
@@ -67,6 +66,8 @@ export const ProfileView = ({user}) => {
           </Form.Group>
         </Form>
         <Button varient="primary" type="submit">Update</Button>
+        <br/>
+        <Button varient="primary" type="submit">Delete User</Button>
       </Card.Body>
     </Card>
   );
