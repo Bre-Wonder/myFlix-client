@@ -14,6 +14,7 @@ export const MovieCard = ({ movie }) => {
           <Button>Open</Button>
         </Link>
         <br />
+        <br />
         <Link>
           <Button title="Add Movie to Favorites List"> + </Button>
         </Link>
