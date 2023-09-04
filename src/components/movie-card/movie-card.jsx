@@ -10,7 +10,7 @@ export const MovieCard = ({ movie }) => {
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
         
-        <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+        <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
           <Button>Open</Button>
         </Link>
         <br />
@@ -24,9 +24,9 @@ export const MovieCard = ({ movie }) => {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    title: PropTypes.string.isRequired, 
-    image: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired
+    Title: PropTypes.string.isRequired, 
+    ImagePath: PropTypes.string.isRequired,
+    Director: PropTypes.string.isRequired,
+    Genre: PropTypes.string.isRequired
   }).isRequired
 };
