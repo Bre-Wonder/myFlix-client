@@ -50,7 +50,11 @@ export const MainView = () => {
                     <Navigate to="/"/>
                   ) : (
                     <Col md={6} xs={10} lg={4}>
-                      <SignUpView />
+                      <SignUpView
+                        onSignedUp={(user) => {
+                        setUser(user);  
+                        }}
+                      />
                     </Col>
                   )}             
                 </>
@@ -98,7 +102,11 @@ export const MainView = () => {
                   {!user ? (
                     <Navigate to="/login" replace />
                   ) : (
-                    <ProfileView user={user}  />
+                    <ProfileView 
+                      onUserUpdate={(user) => {
+                      setUser(user);
+                      }}
+                      user={user} token={token}  />
                   )}             
                 </>
               }
@@ -114,7 +122,7 @@ export const MainView = () => {
                   ) : (
                     <>
                       {movies.map((movie) => (
-                        <Col className="mb-5" key={movie.id} med={3}>
+                        <Col className="mb-5" key={movie._id} med={3}>
                           <MovieCard movie={movie}/>
                         </Col>
                       ))}
