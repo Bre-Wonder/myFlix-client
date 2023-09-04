@@ -25,15 +25,20 @@ export const SignUpView = () => {
     headers: {
       "Content-Type": "application/json"
     }
-  }).then((response) => {
-    if (response.ok) {
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user) {
       alert("Signup Successful");
-      window.location.reload();
-    } else {
-      alert("Signup Failed");
+      // localStorage.setItem("user", JSON.stringify(user));
+      onSignedUp(user);
+      } else {
+        alert("SignUp Failed");
+      }
+    });
+
+      console.log('Signup Happened');
     }
-  });
-};
+
 
 return (
   <Form onSubmit={handleSubmit}>
@@ -77,6 +82,7 @@ return (
         required
         />
     </Form.Group>
+    <br/>
     <Button varient="primary" type="submit">Sign Up</Button>
   </Form>
   );
