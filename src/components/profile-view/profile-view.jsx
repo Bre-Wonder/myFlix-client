@@ -4,12 +4,76 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user}) => {
+export const ProfileView = ({user, token, onUserUpdate}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
+
+  const updateUser = () => {
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    };
+  
+  // Update User Information
+
+  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}`,
+    
+  {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json", Authorization: `Bearer ${token}`
+    }
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user.Username) {
+      alert("Update Successful");
+      localStorage.setItem("user", JSON.stringify(user));
+      onUserUpdate(user);
+    } else {
+      alert("Update Failed");
+    }
+  });
+
+    console.log('clicked');
+  }
+
+  // Deregister User/Delete User
+
+  const deletedUser = () => {
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    };
+
+  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}`,
+    
+  {
+    method: "DELETE",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json", Authorization: `Bearer ${token}`
+    }
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user.Username) {
+      alert("User has been deleted");
+      localStorage.setItem("user", JSON.stringify(user));
+      onUserUpdate(user);
+    } else {
+      alert("Update Failed");
+    }
+  });
+
+    console.log('successfully deleted');
+  }
 
   return (
     <Card>
@@ -65,9 +129,13 @@ export const ProfileView = ({user}) => {
               />
           </Form.Group>
         </Form>
-        <Button varient="primary" type="submit">Update</Button>
         <br/>
-        <Button varient="primary" type="submit">Delete User</Button>
+        <Button onClick={updateUser}
+        varient="primary" type="submit">Update</Button>
+        <br/>
+        <br/>
+        <Button onClick={deletedUser}
+        varient="primary" type="submit">Delete User</Button>
       </Card.Body>
     </Card>
   );
