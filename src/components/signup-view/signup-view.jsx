@@ -28,9 +28,9 @@ export const SignUpView = ({onSignedUp}) => {
   }).then((response) => response.json())
     .then((user) => {
       if (user) {
-      alert("Signup Successful");
-      // localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
       onSignedUp(user);
+      alert("Signup Successful");
       } else {
         alert("SignUp Failed");
       }
