@@ -4,7 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, token, onUserUpdate}) => {
+export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
@@ -64,11 +64,11 @@ export const ProfileView = ({user, token, onUserUpdate}) => {
   }).then((response) => response.json())
     .then((user) => {
       if (user.Username) {
+      localStorage.removeItem("user", JSON.stringify(user));
+      onDeletedUser(user);
       alert("User has been deleted");
-      localStorage.setItem("user", JSON.stringify(user));
-      onUserUpdate(user);
     } else {
-      alert("Update Failed");
+      alert("User NOT successfully deleted");
     }
   });
 
