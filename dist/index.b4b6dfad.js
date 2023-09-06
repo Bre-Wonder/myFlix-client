@@ -27581,18 +27581,23 @@ const MovieCard = ({ movie })=>{
                         lineNumber: 16,
                         columnNumber: 9
                     }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                             title: "Add Movie to Favorites List",
                             children: " + "
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 18,
+                            lineNumber: 19,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -47162,9 +47167,9 @@ const SignUpView = ({ onSignedUp })=>{
             }
         }).then((response)=>response.json()).then((user)=>{
             if (user) {
-                alert("Signup Successful");
-                // localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("user", JSON.stringify(user));
                 onSignedUp(user);
+                alert("Signup Successful");
             } else alert("SignUp Failed");
         });
         console.log("Signup Happened");
@@ -47455,7 +47460,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
 var _react = require("react");
 var _s = $RefreshSig$();
-const ProfileView = ({ user, token, onUserUpdate })=>{
+const ProfileView = ({ user, token, onUserUpdate, onDeletedUser })=>{
     _s();
     const { userId } = (0, _reactRouter.useParams)();
     const [username, updateUsername] = (0, _react.useState)("");
@@ -47503,10 +47508,10 @@ const ProfileView = ({ user, token, onUserUpdate })=>{
             }
         }).then((response)=>response.json()).then((user)=>{
             if (user.Username) {
+                localStorage.removeItem("user", JSON.stringify(user));
+                onDeletedUser(user);
                 alert("User has been deleted");
-                localStorage.setItem("user", JSON.stringify(user));
-                onUserUpdate(user);
-            } else alert("Update Failed");
+            } else alert("User NOT successfully deleted");
         });
         console.log("successfully deleted");
     };
