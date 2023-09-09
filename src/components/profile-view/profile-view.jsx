@@ -4,7 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
+export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
@@ -75,9 +75,42 @@ export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
     console.log('successfully deleted');
   }
 
+  // Adding Movie to User Favorites List
+
+  const favoriteMovies = () => { 
+    movies.filter(m =>
+    user.FavoriteMovies.includs(m._id)
+    );
+
+  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
+    
+  {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json", Authorization: `Bearer ${token}`
+    }
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user.Username) {
+      localStorage.removeItem("user", JSON.stringify(user));
+      onDeletedUser(user);
+      alert("Movie Added");
+    } else {
+      alert("Movie NOT successfully added, please try again");
+    }
+  });
+
+    console.log('Movie Added to List');
+  }
+
   return (
     <Card>
       <Card.Body>
+        <Card.Title>My Movie List</Card.Title>
+          <Form>
+            <Card.Text>{MovieCard}</Card.Text>
+          </Form>
         <Card.Title>Profile Information</Card.Title>
         <Form>
           <Form.Label>Username: </Form.Label>
@@ -131,7 +164,7 @@ export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
         </Form>
         <br/>
         <Button onClick={updateUser}
-        varient="primary" type="submit">Update</Button>
+        varient="primary" type="submit">Update User</Button>
         <br/>
         <br/>
         <Button onClick={deletedUser}
@@ -141,9 +174,7 @@ export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
   );
 }
 
-// let favoriteMovies = movies.filter(m =>
-//   user.FavoriteMovies.includs(m._id)
-//   );
+
 
 // Return User Information 
 // Update User Information 
