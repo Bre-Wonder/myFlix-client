@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, user }) => {
   return (
     <Card className="h-100">
       <Card.Img variant="top" src={movie.ImagePath} />
@@ -15,7 +15,10 @@ export const MovieCard = ({ movie }) => {
         </Link>
         <br />
         <br />
-        <Link>
+        <Link 
+        // to={`/users/${encodeURIComponent(user._username)}/movies/${encodeURIComponent(movie._id)}`}
+        >
+          {/* Ask if username needs prop type */}
           <Button title="Add Movie to Favorites List"> + </Button>
         </Link>
       </Card.Body>
