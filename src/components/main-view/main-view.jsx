@@ -106,6 +106,9 @@ export const MainView = () => {
                       onUserUpdate={(user) => {
                       setUser(user);
                       }}
+                      onDeletedUser={(user) => {
+                      // some type of delete function but not sure where to define it
+                      }}
                       user={user} token={token}  />
                   )}             
                 </>
