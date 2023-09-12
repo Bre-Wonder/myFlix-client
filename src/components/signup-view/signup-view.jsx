@@ -3,7 +3,7 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export const SignUpView = () => {
+export const SignUpView = ({onSignedUp}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -25,15 +25,23 @@ export const SignUpView = () => {
     headers: {
       "Content-Type": "application/json"
     }
-  }).then((response) => {
-    if (response.ok) {
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user._id) {
+      localStorage.setItem("user", JSON.stringify(user));
+      onSignedUp(user);
       alert("Signup Successful");
-      window.location.reload();
-    } else {
-      alert("Signup Failed");
+      } else {
+        alert("SignUp Failed");
+      }
+    })
+    .catch((e) => {
+      alert("Somthing went wrong");
+    });
+
+      console.log('Signup Happened');
     }
-  });
-};
+
 
 return (
   <Form onSubmit={handleSubmit}>
@@ -77,6 +85,7 @@ return (
         required
         />
     </Form.Group>
+    <br/>
     <Button varient="primary" type="submit">Sign Up</Button>
   </Form>
   );

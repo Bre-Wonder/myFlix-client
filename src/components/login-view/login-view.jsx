@@ -58,6 +58,7 @@ export const LoginView = ({ onLoggedIn }) => {
         required
         />
       </Form.Group>
+      <br/>
       <Button variant="primary" type="submit">Submit</Button>
     </Form>
   );
