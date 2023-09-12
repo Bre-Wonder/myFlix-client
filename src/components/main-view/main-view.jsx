@@ -52,7 +52,9 @@ export const MainView = () => {
                     <Col md={6} xs={10} lg={4}>
                       <SignUpView
                         onSignedUp={(user) => {
-                        setUser(user);  
+                          setUser(null);
+                          setToken(null);
+                          localStorage.clear() 
                         }}
                       />
                     </Col>
