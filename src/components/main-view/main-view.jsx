@@ -104,18 +104,15 @@ export const MainView = () => {
                   {!user ? (
                     <Navigate to="/login" replace />
                   ) : (
-                    <ProfileView 
-                      onUserUpdate={(user) => {
-                      setUser(user);
-                      }}
-                      onDeletedUser={(user) => {
-                      deleteUser(user);
-                      localStorage.clear();
-                      .then {
-                        <Navigate to="/login" replace/>
-                      }
-                      }}
-                      user={user} token={token}  />
+                      <ProfileView 
+                        onUserUpdate={(user) => {
+                        setUser(user);
+                        }}
+                        onDeletedUser={(user) => {
+                        deleteUser(user);
+                        localStorage.clear();
+                        }}
+                        user={user} token={token}  />  
                   )}             
                 </>
               }
@@ -131,7 +128,7 @@ export const MainView = () => {
                   ) : (
                     <>
                       {movies.map((movie) => (
-                        <Col className="mb-5" key={movie._id} med={3}>
+                        <Col className="mb-4" key={movie._id} med={3}>
                           <MovieCard movie={movie}/>
                         </Col>
                       ))}
