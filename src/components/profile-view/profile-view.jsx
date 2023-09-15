@@ -73,36 +73,8 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) =
   });
 
     console.log('successfully deleted');
-  }
-
-  // Adding Movie to User Favorites List
-
-  const favoriteMovies = () => { 
-    movies.filter(m =>
-    user.FavoriteMovies.includs(m._id)
-    );
-
-  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
-    
-  {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json", Authorization: `Bearer ${token}`
-    }
-  }).then((response) => response.json())
-    .then((user) => {
-      if (user.Username) {
-      localStorage.removeItem("user", JSON.stringify(user));
-      onDeletedUser(user);
-      alert("Movie Added");
-    } else {
-      alert("Movie NOT successfully added, please try again");
-    }
-  });
-
-    console.log('Movie Added to List');
-  }
+}
+  
 
   return (
     <Card>
