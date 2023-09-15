@@ -4,7 +4,44 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie, user }) => {
+export const MovieCard = ({ movie, user, favoriteMovie }) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+ 
+  // Adding Movie to User Favorites List
+
+  const movieFavoriteAdded = () => { 
+    movies.filter(m =>
+    user.FavoriteMovies.includs(m._id)
+    );
+
+  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
+    
+  {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json", Authorization: `Bearer ${token}`
+    }
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user.Username) {
+      localStorage.removeItem("user", JSON.stringify(user));
+      favoriteMovie(user);
+      alert("Movie Added");
+    } else {
+      alert("Movie NOT successfully added, please try again");
+    }
+  });
+
+    console.log('Movie Added to List');
+  }}
+
+
+
+
+
   return (
     <Card className="h-100" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={movie.ImagePath} />
