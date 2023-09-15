@@ -109,7 +109,7 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) =
       <Card.Body>
         <Card.Title>My Movie List</Card.Title>
           <Form>
-            <Card.Text>{MovieCard}</Card.Text>
+            <Card.Text><MovieCard/></Card.Text>
           </Form>
         <Card.Title>Profile Information</Card.Title>
         <Form>
