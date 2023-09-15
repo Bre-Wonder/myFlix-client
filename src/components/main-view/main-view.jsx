@@ -12,7 +12,7 @@ import { ProfileView } from "../profile-view/profile-view";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [user, setUser] = useState(storedUser);
+  const [user, setUser, deleteUser] = useState(storedUser);
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState ([]);
 
@@ -109,7 +109,11 @@ export const MainView = () => {
                       setUser(user);
                       }}
                       onDeletedUser={(user) => {
-                      // some type of delete function but not sure where to define it
+                      deleteUser(user);
+                      localStorage.clear();
+                      .then {
+                        <Navigate to="/login" replace/>
+                      }
                       }}
                       user={user} token={token}  />
                   )}             
