@@ -4,39 +4,42 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie, user, favoriteMovie }) => {
+export const MovieCard = ({ movie, onMovieFavoriteAdded }) => {
+  // const [user ] = useState(storedUser);
+  // const [ movie ] = useState([]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
  
-  // Adding Movie to User Favorites List
+  // // Adding Movie to User Favorites List
 
-  const movieFavoriteAdded = () => { 
-    movies.filter(m =>
-    user.FavoriteMovies.includs(m._id)
-    );
-
-  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
+  // // const movieFavoriteAdded = () => { 
     
-  {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json", Authorization: `Bearer ${token}`
-    }
-  }).then((response) => response.json())
-    .then((user) => {
-      if (user.Username) {
-      localStorage.removeItem("user", JSON.stringify(user));
-      favoriteMovie(user);
-      alert("Movie Added");
-    } else {
-      alert("Movie NOT successfully added, please try again");
-    }
-  });
 
-    console.log('Movie Added to List');
-  }}
+  // // fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
+    
+  // // {
+  // //   method: "POST",
+  // //   body: JSON.stringify(data),
+  // //   headers: {
+  // //     "Content-Type": "application/json", Authorization: `Bearer ${token}`
+  // //   }
+  // // }).then((response) => response.json())
+  // //   .then((user, movie) => {
+  // //     if (user.Username) {
+  // //     localStorage.setItem("user", JSON.stringify(user));
+  // //     movies.filter(m =>
+  // //     user.MovieFavoriteAdded.includs(m._id)
+  // //       );
+  // //     movieFavoriteAdded(movie.Id);
+  // //     alert("Movie Added");
+  // //   } else {
+  // //     alert("Movie NOT successfully added, please try again");
+  // //   }
+  // // });
+
+  // //   console.log('Movie Added to List');
+  // // }}
 
 
   return (
@@ -49,7 +52,7 @@ export const MovieCard = ({ movie, user, favoriteMovie }) => {
           <Button className="openButton">Open</Button>
         </Link>
         <Button 
-        // onClick={movieFavoriteAdded}
+        onClick={() => onMovieFavoriteAdded(movie)}
         className="addButton"
         varient="primary" type="submit"
         title="Add Movie to Favorites List"> + </Button>
