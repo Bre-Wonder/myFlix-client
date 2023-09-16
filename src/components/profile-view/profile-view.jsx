@@ -4,14 +4,14 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, favoriteMovies}) => {
+export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, addFavoriteMovie}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
 
-  const favoriteMovies = movies.filter((movie) => user.favoriteMovies.includes(movie._id));
+  const addFavoriteMovie = movies.filter((movie) => user.favoriteMovies.includes(movie._id));
 
   // Update User Information
 
@@ -91,9 +91,12 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, fa
                   <Col>This List is Empty!</Col>
                 ) : (
                   <>
-                    {favoriteMovies.map((movie) => (
+                    {addFavoriteMovie.map((movie) => (
                       <Col className="mb-4" key={movie._id} med={3}>
-                        <MovieCard movie={movie}/>
+                        <MovieCard 
+
+                        
+                          movie={movie}/>
                       </Col>
                     ))}
                   </>
