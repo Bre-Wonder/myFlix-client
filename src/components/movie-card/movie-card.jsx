@@ -39,9 +39,6 @@ export const MovieCard = ({ movie, user, favoriteMovie }) => {
   }}
 
 
-
-
-
   return (
     <Card className="h-100" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={movie.ImagePath} />
