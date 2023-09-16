@@ -4,12 +4,16 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) => {
+export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, favoriteMovies}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
+
+  const favoriteMovies = movies.filter((movie) => user.favoriteMovies.includes(movie._id));
+
+  // Update User Information
 
   const updateUser = () => {
     const data = {
@@ -18,8 +22,6 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) =
       Email: email,
       Birthday: birthday
     };
-  
-  // Update User Information
 
   fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}`,
     
@@ -81,7 +83,23 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) =
       <Card.Body>
         <Card.Title>My Movie List</Card.Title>
           <Form>
-            <Card.Text>Your Favorite Movies Here</Card.Text>
+            <Card.Text>
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                  <Col>This List is Empty!</Col>
+                ) : (
+                  <>
+                    {favoriteMovies.map((movie) => (
+                      <Col className="mb-4" key={movie._id} med={3}>
+                        <MovieCard movie={movie}/>
+                      </Col>
+                    ))}
+                  </>
+                  )}             
+              </>
+            </Card.Text>
           </Form>
           <br/>
         <Card.Title>Profile Information</Card.Title>
