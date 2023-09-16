@@ -4,7 +4,10 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie, onMovieFavoriteAdded }) => {
+export const MovieCard = ({ movie, favoriteMovies }) => {
+
+  const favoriteMovies = movies.filter((movie) => user.favoriteMovies.includes(movie._id));
+
   // const [user ] = useState(storedUser);
   // const [ movie ] = useState([]);
 
@@ -52,7 +55,7 @@ export const MovieCard = ({ movie, onMovieFavoriteAdded }) => {
           <Button className="openButton">Open</Button>
         </Link>
         <Button 
-        onClick={() => onMovieFavoriteAdded(movie)}
+        onClick={favoriteMovies}
         className="addButton"
         varient="primary" type="submit"
         title="Add Movie to Favorites List"> + </Button>
