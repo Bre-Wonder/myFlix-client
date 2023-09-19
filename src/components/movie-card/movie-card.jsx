@@ -4,45 +4,56 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie, favoriteMovies }) => {
+export const MovieCard = ({ movie, user, setUser}) => {
 
-  const favoriteMovies = movies.filter((movie) => user.favoriteMovies.includes(movie._id));
-
-  // const [user ] = useState(storedUser);
-  // const [ movie ] = useState([]);
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
+  let isFavorite = movie.filter(movie => user.FavoriteMovies.includes(movie._id));
  
-  // // Adding Movie to User Favorites List
+  // Adding Movie to User Favorites List
 
-  // // const movieFavoriteAdded = () => { 
+  const addToFavorites = () => { 
     
 
-  // // fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
+  fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
     
-  // // {
-  // //   method: "POST",
-  // //   body: JSON.stringify(data),
-  // //   headers: {
-  // //     "Content-Type": "application/json", Authorization: `Bearer ${token}`
-  // //   }
-  // // }).then((response) => response.json())
-  // //   .then((user, movie) => {
-  // //     if (user.Username) {
-  // //     localStorage.setItem("user", JSON.stringify(user));
-  // //     movies.filter(m =>
-  // //     user.MovieFavoriteAdded.includs(m._id)
-  // //       );
-  // //     movieFavoriteAdded(movie.Id);
-  // //     alert("Movie Added");
-  // //   } else {
-  // //     alert("Movie NOT successfully added, please try again");
-  // //   }
-  // // });
+  {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json", Authorization: `Bearer ${token}`
+    }
+  }).then((response) => response.json())
+    .then((user) => {
+      if (user.Username) {
+      localStorage.setItem("user", JSON.stringify(user));
+      setUser(user)
+      alert("Movie Added");
+    } else {
+      alert("Movie NOT successfully added, please try again");
+    }
+  });
+}
 
-  // //   console.log('Movie Added to List');
-  // // }}
+    // Removing Movie from User Favorites List
+
+    const removeFromFavorites = () => { 
+    
+
+      fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
+        
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json", Authorization: `Bearer ${token}`
+        }
+      }).then((response) => {
+        if (response.ok) {
+          setUser(user)
+          alert("Movie Removed from List");
+        } else {
+          alert("Movie NOT successfully removed");
+        }
+      });
+    }
 
 
   return (
@@ -54,16 +65,18 @@ export const MovieCard = ({ movie, favoriteMovies }) => {
         <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
           <Button className="openButton">Open</Button>
         </Link>
+        {!isFavorite() ? 
+
         <Button 
-        onClick={favoriteMovies}
+        onClick={addToFavorites}
         className="addButton"
         varient="primary" type="submit"
-        title="Add Movie to Favorites List"> + </Button>
+        title="Add Movie to Favorites List"> + </Button> : 
         <Button 
-        // onClick={movieFavoriteRemoved}
+        onClick={removeFromFavorites}
         className="removeButton"
         varient="primary" type="submit"
-        title="Remove Movie from Favorites List"> - </Button>
+        title="Remove Movie from Favorites List"> - </Button> }
       </Card.Body>
     </Card> 
   );
