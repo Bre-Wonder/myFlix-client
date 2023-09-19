@@ -4,14 +4,12 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, addFavoriteMovie}) => {
+export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
-
-  const addFavoriteMovie = movies.filter((movie) => user.favoriteMovies.includes(movie._id));
 
   // Update User Information
 
@@ -48,33 +46,22 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, ad
   // Deregister User/Delete User
 
   const deletedUser = () => {
-    const data = {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    };
 
   fetch(`https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/users/${user.Username}`,
     
   {
     method: "DELETE",
-    body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json", Authorization: `Bearer ${token}`
     }
-  }).then((response) => response.json())
-    .then((user) => {
-      if (user.Username) {
-      localStorage.removeItem("user", JSON.stringify(user));
+  }).then((response) => {
+      if (response.ok) {
       onDeletedUser(user);
       alert("User has been deleted");
     } else {
       alert("User NOT successfully deleted");
     }
   });
-
-    console.log('successfully deleted');
 }
   
 
@@ -91,12 +78,14 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser, ad
                   <Col>This List is Empty!</Col>
                 ) : (
                   <>
-                    {addFavoriteMovie.map((movie) => (
+                    {movies
+                    .filter((m) => user.FavoriteMovies.find((fav) => fav.title === m.title))
+                    .map((movie) => (
                       <Col className="mb-4" key={movie._id} med={3}>
                         <MovieCard 
-
-                        
-                          movie={movie}/>
+                          movie={movie}
+                          user={user}
+                          setUser={setUser}/>
                       </Col>
                     ))}
                   </>
