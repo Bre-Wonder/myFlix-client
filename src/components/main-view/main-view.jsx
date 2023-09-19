@@ -12,7 +12,7 @@ import { ProfileView } from "../profile-view/profile-view";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [user, setUser, deleteUser] = useState(storedUser);
+  const [user, setUser] = useState(storedUser);
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState ([]);
 
@@ -109,10 +109,10 @@ export const MainView = () => {
                         setUser(user);
                         }}
                         onDeletedUser={(user) => {
-                        deleteUser(user);
                         localStorage.clear();
                         }}
-                        user={user} token={token}  />  
+                        user={user} token={token}  
+                      />  
                   )}             
                 </>
               }
@@ -129,7 +129,7 @@ export const MainView = () => {
                     <>
                       {movies.map((movie) => (
                         <Col className="mb-4" key={movie._id} med={3}>
-                          <MovieCard movie={movie}/>
+                          <MovieCard movie={movie} user={user} setUser={setUser} />
                         </Col>
                       ))}
                     </>
