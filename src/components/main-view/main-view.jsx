@@ -111,7 +111,7 @@ export const MainView = () => {
                         onDeletedUser={(user) => {
                         localStorage.clear();
                         }}
-                        user={user} token={token}  
+                        user={user} token={token} setUser={setUser} 
                       />  
                   )}             
                 </>
