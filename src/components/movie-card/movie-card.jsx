@@ -8,12 +8,11 @@ import { useState } from "react";
 
 export const MovieCard = ({ movie, user, token, setUser}) => {
 
-  let isFavorite = () => {
-    return user.FavoriteMovies.find((m) => m.title === movie._id);
-    console.log("movie added");
+  const isFavorite = () => {
+    return user.FavoriteMovies.includes(movie._id);
+    console.log("You added this movie");
   }
-  
- 
+
   // Adding Movie to User Favorites List
 
   const addToFavorites = () => { 
@@ -23,16 +22,18 @@ export const MovieCard = ({ movie, user, token, setUser}) => {
     
   {
     method: "POST",
-    body: JSON.stringify(user),
     headers: {
       "Content-Type": "application/json", Authorization: `Bearer ${token}`
     }
   })
-  //  .then((response) => response.json())
-    .then((user) => {
-      if (user.Username) {
+   .then((response) => {
+    if(response.ok) {
+      return response.json();
+    } 
+  }) .then((user) => {
+      if (user) {
       localStorage.setItem("user", JSON.stringify(user));
-      setUser(user)
+      setUser(user);
       alert("Movie Added");
     } else {
       alert("Movie NOT successfully added, please try again");
