@@ -4,12 +4,13 @@ import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) => {
+export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
+  const [ movies ] = useState([]);
 
   // Update User Information
 
@@ -75,7 +76,7 @@ export const ProfileView = ({user, movie, token, onUserUpdate, onDeletedUser}) =
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : movies.length === 0 ? (
-                  <Col>This List is Empty!</Col>
+                  <p>This List is Empty!</p>
                 ) : (
                   <>
                     {movies
