@@ -27470,7 +27470,8 @@ const MainView = ()=>{
                                         localStorage.clear();
                                     },
                                     user: user,
-                                    token: token
+                                    token: token,
+                                    setUser: setUser
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false)
                         }, void 0, false, {
