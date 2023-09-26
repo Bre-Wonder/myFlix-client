@@ -7,11 +7,13 @@ import { useState } from "react";
 
 
 export const MovieCard = ({ movie, user, token, setUser}) => {
+  
+  // const favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
 
-  const isFavorite = () => {
-    return user.FavoriteMovies.includes(movie._id);
-    console.log("You added this movie");
-  }
+  const isFavorite = user.FavoriteMovies.filter((m) => m === movie._id).length > 0;
+    console.log("this is the user", user, isFavorite);
+  
+
 
   // Adding Movie to User Favorites List
 
@@ -54,7 +56,12 @@ export const MovieCard = ({ movie, user, token, setUser}) => {
           "Content-Type": "application/json", Authorization: `Bearer ${token}`
         }
       }).then((response) => {
-        if (response.ok) {
+        if(response.ok) {
+          return response.json();
+        } 
+      }) .then((user) => {
+          if (user) {
+          localStorage.setItem("user", JSON.stringify(user));
           setUser(user)
           alert("Movie Removed from List");
         } else {
@@ -73,17 +80,17 @@ export const MovieCard = ({ movie, user, token, setUser}) => {
         <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
           <Button className="openButton">Open</Button>
         </Link>
-        {!isFavorite() ? 
+        {!isFavorite ? 
 
         <Button 
         onClick={addToFavorites}
         className="addButton"
-        varient="primary" type="submit"
+        varient="primary" type="button"
         title="Add Movie to Favorites List"> + </Button> : 
         <Button 
         onClick={removeFromFavorites}
         className="removeButton"
-        varient="primary" type="submit"
+        varient="primary" type="button"
         title="Remove Movie from Favorites List"> - </Button> }
       </Card.Body>
     </Card> 
