@@ -111,7 +111,7 @@ export const MainView = () => {
                         onDeletedUser={(user) => {
                         localStorage.clear();
                         }}
-                        user={user} token={token} setUser={setUser} 
+                        user={user} token={token} movies={movies}
                       />  
                   )}             
                 </>
@@ -129,7 +129,7 @@ export const MainView = () => {
                     <>
                       {movies.map((movie) => (
                         <Col className="mb-4" key={movie._id} med={3}>
-                          <MovieCard movie={movie} user={user} setUser={setUser} />
+                          <MovieCard movie={movie} user={user} setUser={setUser} token={token} />
                         </Col>
                       ))}
                     </>
