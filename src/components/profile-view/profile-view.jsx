@@ -1,16 +1,15 @@
 import { useParams } from "react-router";
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Col } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 import { useState } from "react";
 
 
-export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
+export const ProfileView = ({user, movies, token, onUserUpdate, onDeletedUser}) => {
   const { userId } = useParams();
   const [ username, updateUsername ] = useState("");
   const [ password, updatePassword ] = useState("");
   const [ email, updateEmail ] = useState("");
   const [ birthday, updateBirthday ] = useState("");
-  const [ movies ] = useState([]);
 
   // Update User Information
 
@@ -64,6 +63,8 @@ export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
     }
   });
 }
+
+const favoriteMovies = movies.filter((m) => user.FavoriteMovies.find((fav) => fav === m._id));
   
 
   return (
@@ -75,18 +76,18 @@ export const ProfileView = ({user, token, onUserUpdate, onDeletedUser}) => {
               <>
                 {!user ? (
                   <Navigate to="/login" replace />
-                ) : movies.length === 0 ? (
-                  <p>This List is Empty!</p>
+                ) : favoriteMovies.length === 0 ? (
+                    <p>This List is Empty!</p>
                 ) : (
                   <>
-                    {movies
-                    .filter((m) => user.FavoriteMovies.find((fav) => fav.title === m.title))
+                    {favoriteMovies
                     .map((movie) => (
                       <Col className="mb-4" key={movie._id} med={3}>
                         <MovieCard 
                           movie={movie}
                           user={user}
-                          setUser={setUser}/>
+                          setUser={onUserUpdate}
+                          token={token}/>
                       </Col>
                     ))}
                   </>
