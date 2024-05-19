@@ -14,6 +14,8 @@
   
   Next, import React into React files and build compenents to be added to Main View from there. 
 
+  Next, build different components to be imported to necessary views for user to interact with.
+
 
 ## Dependancies
   - Tech Stack Used: MERN (MongoDB, Express, React, Node.js)
