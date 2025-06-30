@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "dependancies for project",
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,6 +17,7 @@
   },
   "homepage": "https://github.com/Bre-Wonder/myFlix-client#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "bootstrap": "^5.3.1",
     "mdb-react-ui-kit": "^9.0.0",
     "prop-types": "^15.8.1",
