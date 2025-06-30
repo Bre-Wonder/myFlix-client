@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { createRoot } from "react-dom/client";
 import { MainView } from "./components/main-view/main-view";
 import "./index.scss";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const myFlixApplication = () => {
   return (
