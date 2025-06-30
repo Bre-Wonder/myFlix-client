@@ -3,6 +3,7 @@ import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return(
@@ -23,6 +24,12 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link as={Link} to="/">Home</Nav.Link>
                 <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
+                <MDBInputGroup>
+                  <MDBInput label='' />
+                  <MDBBtn rippleColor='dark'>
+                    <MDBIcon icon='search' />
+                  </MDBBtn>
+                </MDBInputGroup>
               </>
             )}
           </Nav>
