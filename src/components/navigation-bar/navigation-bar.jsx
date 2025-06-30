@@ -25,8 +25,8 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
                 <MDBInputGroup>
-                  <MDBInput label='' />
-                  <MDBBtn rippleColor='dark'>
+                  <MDBInput placeholder='Search' style={{ borderTopRightRadius: '0', borderBottomRightRadius: '0' }} />
+                  <MDBBtn rippleColor='dark' style={{ borderTopLeftRadius: '0', borderBottomLeftRadius: '0' }}>
                     <MDBIcon icon='search' />
                   </MDBBtn>
                 </MDBInputGroup>
