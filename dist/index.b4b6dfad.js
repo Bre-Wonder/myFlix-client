@@ -47469,7 +47469,11 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBInputGroup), {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBInput), {
-                                                label: ""
+                                                placeholder: "Search",
+                                                style: {
+                                                    borderTopRightRadius: "0",
+                                                    borderBottomRightRadius: "0"
+                                                }
                                             }, void 0, false, {
                                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                                 lineNumber: 28,
@@ -47477,6 +47481,10 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBBtn), {
                                                 rippleColor: "dark",
+                                                style: {
+                                                    borderTopLeftRadius: "0",
+                                                    borderBottomLeftRadius: "0"
+                                                },
                                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBIcon), {
                                                     icon: "search"
                                                 }, void 0, false, {
