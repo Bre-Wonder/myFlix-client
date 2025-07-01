@@ -47401,14 +47401,14 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                     children: "My Flix App"
                 }, void 0, false, {
                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 12,
+                    lineNumber: 19,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default).Toggle, {
                     "aria-controls": "bassic-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 13,
+                    lineNumber: 20,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default).Collapse, {
@@ -47424,7 +47424,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 18,
+                                        lineNumber: 25,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
@@ -47433,7 +47433,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Signup"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 19,
+                                        lineNumber: 26,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -47446,7 +47446,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 24,
+                                        lineNumber: 31,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
@@ -47455,7 +47455,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 25,
+                                        lineNumber: 32,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default).Link, {
@@ -47463,44 +47463,191 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 26,
+                                        lineNumber: 33,
                                         columnNumber: 17
                                     }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBInputGroup), {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBInput), {
-                                                placeholder: "Search",
-                                                style: {
-                                                    borderTopRightRadius: "0",
-                                                    borderBottomRightRadius: "0"
-                                                }
-                                            }, void 0, false, {
-                                                fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                lineNumber: 28,
-                                                columnNumber: 19
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBBtn), {
-                                                rippleColor: "dark",
-                                                style: {
-                                                    borderTopLeftRadius: "0",
-                                                    borderBottomLeftRadius: "0"
-                                                },
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBIcon), {
-                                                    icon: "search"
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBNavbarItem), {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdown), {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownToggle), {
+                                                    tag: "a",
+                                                    className: "nav-link",
+                                                    role: "button",
+                                                    children: "Genres"
                                                 }, void 0, false, {
                                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                    lineNumber: 30,
+                                                    lineNumber: 36,
+                                                    columnNumber: 21
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownMenu), {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Action"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 40,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Romantic Comedy "
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 41,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Coming of Age"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 42,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Animation"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 43,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Adventure"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 44,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Superhero"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 45,
+                                                            columnNumber: 23
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                    lineNumber: 39,
                                                     columnNumber: 21
                                                 }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                lineNumber: 29,
-                                                columnNumber: 19
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 35,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 27,
+                                        lineNumber: 34,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBNavbarItem), {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdown), {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownToggle), {
+                                                    tag: "a",
+                                                    className: "nav-link",
+                                                    role: "button",
+                                                    children: "Directors"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                    lineNumber: 51,
+                                                    columnNumber: 21
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownMenu), {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Mark Dindal"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 55,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Steven Sordergh"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 56,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Nancy Meyers"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 57,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Kevin Kwapis"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 58,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "William Wyler"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 59,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "John Musker"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 60,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Taika Waititi"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 61,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Robert Zemeckis"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 62,
+                                                            columnNumber: 23
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                            link: true,
+                                                            children: "Jon M Chu"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                            lineNumber: 63,
+                                                            columnNumber: 23
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                    lineNumber: 54,
+                                                    columnNumber: 21
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 50,
+                                            columnNumber: 19
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 49,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
@@ -47508,23 +47655,23 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 15,
+                        lineNumber: 22,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 14,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-            lineNumber: 11,
+            lineNumber: 18,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-        lineNumber: 10,
+        lineNumber: 17,
         columnNumber: 5
     }, undefined);
 };
