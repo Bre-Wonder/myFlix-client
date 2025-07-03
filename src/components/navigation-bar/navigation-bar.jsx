@@ -12,7 +12,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem, } from 'mdb-react-ui-kit';
 
-export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] }) => {
+export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleGenreSelect }) => {
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -38,14 +38,11 @@ export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] }
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
                       {genres.map((g, index) => (
-                        <MDBDropdownItem key={index} link>{g}</MDBDropdownItem>
+                        <MDBDropdownItem key={index} link onClick={() => handleGenreSelect(g)}>{g}</MDBDropdownItem>
                       ))}
-                      {/* <MDBDropdownItem link>Action</MDBDropdownItem>
-                      <MDBDropdownItem link>Romantic Comedy </MDBDropdownItem>
-                      <MDBDropdownItem link>Coming of Age</MDBDropdownItem>
-                      <MDBDropdownItem link>Animation</MDBDropdownItem>
-                      <MDBDropdownItem link>Adventure</MDBDropdownItem>
-                      <MDBDropdownItem link>Superhero</MDBDropdownItem> */}
+                      <MDBDropdownItem link onClick={() => handleGenreSelect(null)}>
+                        All Genres
+                      </MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>
@@ -61,27 +58,8 @@ export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] }
                       ))}
                     </MDBDropdownMenu>
                   </MDBDropdown>
-                  {/* <MDBDropdownMenu>
-                      <MDBDropdownItem link>Mark Dindal</MDBDropdownItem>
-                      <MDBDropdownItem link>Steven Sordergh</MDBDropdownItem>
-                      <MDBDropdownItem link>Nancy Meyers</MDBDropdownItem>
-                      <MDBDropdownItem link>Kevin Kwapis</MDBDropdownItem>
-                      <MDBDropdownItem link>William Wyler</MDBDropdownItem>
-                      <MDBDropdownItem link>John Musker</MDBDropdownItem>
-                      <MDBDropdownItem link>Taika Waititi</MDBDropdownItem>
-                      <MDBDropdownItem link>Robert Zemeckis</MDBDropdownItem>
-                      <MDBDropdownItem link>Jon M Chu</MDBDropdownItem>
-                    </MDBDropdownMenu> */}
                   </MDBDropdown>
                 </MDBNavbarItem>
-
-
-                {/* <MDBInputGroup>
-                  <MDBInput placeholder='Search' style={{ borderTopRightRadius: '0', borderBottomRightRadius: '0' }} />
-                  <MDBBtn rippleColor='dark' style={{ borderTopLeftRadius: '0', borderBottomLeftRadius: '0' }}>
-                    <MDBIcon icon='search' />
-                  </MDBBtn>
-                </MDBInputGroup> */}
               </>
             )}
           </Nav>

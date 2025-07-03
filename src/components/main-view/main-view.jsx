@@ -15,6 +15,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser);
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState ([]);
+  const [selectedGenre, setSelectedGenre] = useState(null);
 
   useEffect(() => {
     if (!storedToken) {
@@ -50,6 +51,7 @@ export const MainView = () => {
           }}
           genres={genres}
           directors={directors}
+          handleGenreSelect={setSelectedGenre}
         />
         <Row className="justify-constent-md-center">
           <Routes>
@@ -138,10 +140,12 @@ export const MainView = () => {
                     <Col>This List is Empty!</Col>
                   ) : (
                     <>
-                      {movies.map((movie) => (
-                        <Col className="mb-4" key={movie._id} med={3}>
-                          <MovieCard movie={movie} user={user} setUser={setUser} token={token} />
-                        </Col>
+                      {movies
+                        .filter((movie) => !selectedGenre || movie.Genre?.Name === selectedGenre)
+                        .map((movie) => (
+                          <Col className="mb-4" key={movie._id} med={3}>
+                            <MovieCard movie={movie} user={user} setUser={setUser} token={token} />
+                          </Col>
                       ))}
                     </>
                   )}             
