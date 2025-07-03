@@ -30,6 +30,15 @@ export const MainView = () => {
       });
     }, [token]);
     
+    const genres = movies.length 
+      ? [...new Set(movies.map((movie) => movie.Genre?.Name).filter(Boolean))] 
+      : [];
+
+    const directors = movies.length 
+      ? [...new Set(movies.map((movie) => movie.Director?.Name).filter(Boolean))] 
+      : [];
+
+
     return (
       <BrowserRouter>
         <NavigationBar 
@@ -39,6 +48,8 @@ export const MainView = () => {
             setToken(null);
             localStorage.clear()
           }}
+          genres={genres}
+          directors={directors}
         />
         <Row className="justify-constent-md-center">
           <Routes>
