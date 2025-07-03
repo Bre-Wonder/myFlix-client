@@ -12,7 +12,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem, } from 'mdb-react-ui-kit';
 
-export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleGenreSelect }) => {
+export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleGenreSelect, handleDirectorSelect }) => {
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -54,8 +54,11 @@ export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], 
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
                       {directors.map((d, index) => (
-                        <MDBDropdownItem key={index} link>{d}</MDBDropdownItem>
+                        <MDBDropdownItem key={index} link onClick={() => handleDirectorSelect(d)}>{d}</MDBDropdownItem>
                       ))}
+                      <MDBDropdownItem link onClick={() => handleDirectorSelect(null)}>
+                        All Directors
+                      </MDBDropdownItem>
                     </MDBDropdownMenu>
                   </MDBDropdown>
                   </MDBDropdown>
