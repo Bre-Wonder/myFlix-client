@@ -27359,6 +27359,7 @@ const MainView = ()=>{
     const [user, setUser] = (0, _react.useState)(storedUser);
     const [token, setToken] = (0, _react.useState)(storedToken);
     const [movies, setMovies] = (0, _react.useState)([]);
+    const [selectedGenre, setSelectedGenre] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         if (!storedToken) return;
         fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies", {
@@ -27387,10 +27388,11 @@ const MainView = ()=>{
                     localStorage.clear();
                 },
                 genres: genres,
-                directors: directors
+                directors: directors,
+                handleGenreSelect: setSelectedGenre
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -27417,7 +27419,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 56,
+                            lineNumber: 58,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27439,7 +27441,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 76,
+                            lineNumber: 78,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27462,7 +27464,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 95,
+                            lineNumber: 97,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27485,7 +27487,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 111,
+                            lineNumber: 113,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27497,7 +27499,7 @@ const MainView = ()=>{
                                 }, void 0, false, void 0, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                     children: "This List is Empty!"
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                    children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    children: movies.filter((movie)=>!selectedGenre || movie.Genre?.Name === selectedGenre).map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                             className: "mb-4",
                                             med: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27511,28 +27513,28 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 131,
+                            lineNumber: 133,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 55,
+                    lineNumber: 57,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 54,
+                lineNumber: 56,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 7
     }, undefined);
 };
-_s(MainView, "Vv/ky0PLSUMvKsi9rFXu3poXKNo=");
+_s(MainView, "p6lRN8xia4bjqK8AlqJsNU6abdU=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -47397,7 +47399,7 @@ var _navbar = require("react-bootstrap/Navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _reactRouterDom = require("react-router-dom");
 var _mdbReactUiKit = require("mdb-react-ui-kit");
-const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] })=>{
+const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleGenreSelect })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {
         expand: "lg",
         className: "bg-body-tertiary",
@@ -47488,15 +47490,27 @@ const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] })=>{
                                                     columnNumber: 21
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownMenu), {
-                                                    children: genres.map((g, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                    children: [
+                                                        genres.map((g, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                                link: true,
+                                                                onClick: ()=>handleGenreSelect(g),
+                                                                children: g
+                                                            }, index, false, {
+                                                                fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                                lineNumber: 41,
+                                                                columnNumber: 25
+                                                            }, undefined)),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
                                                             link: true,
-                                                            children: g
-                                                        }, index, false, {
+                                                            onClick: ()=>handleGenreSelect(null),
+                                                            children: "All Genres"
+                                                        }, void 0, false, {
                                                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                            lineNumber: 41,
-                                                            columnNumber: 25
-                                                        }, undefined))
-                                                }, void 0, false, {
+                                                            lineNumber: 43,
+                                                            columnNumber: 23
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                                     lineNumber: 39,
                                                     columnNumber: 21
@@ -47523,7 +47537,7 @@ const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] })=>{
                                                         children: "Directors"
                                                     }, void 0, false, {
                                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                        lineNumber: 55,
+                                                        lineNumber: 52,
                                                         columnNumber: 21
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownMenu), {
@@ -47532,28 +47546,28 @@ const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] })=>{
                                                                 children: d
                                                             }, index, false, {
                                                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                                lineNumber: 60,
+                                                                lineNumber: 57,
                                                                 columnNumber: 25
                                                             }, undefined))
                                                     }, void 0, false, {
                                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                        lineNumber: 58,
+                                                        lineNumber: 55,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                lineNumber: 54,
+                                                lineNumber: 51,
                                                 columnNumber: 21
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 53,
+                                            lineNumber: 50,
                                             columnNumber: 19
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 52,
+                                        lineNumber: 49,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
