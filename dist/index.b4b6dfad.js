@@ -27360,6 +27360,7 @@ const MainView = ()=>{
     const [token, setToken] = (0, _react.useState)(storedToken);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedGenre, setSelectedGenre] = (0, _react.useState)(null);
+    const [selectedDirector, setSelectedDirector] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         if (!storedToken) return;
         fetch("https://bre-wonder-cinema-app-8704977a1a65.herokuapp.com/movies", {
@@ -27389,10 +27390,11 @@ const MainView = ()=>{
                 },
                 genres: genres,
                 directors: directors,
-                handleGenreSelect: setSelectedGenre
+                handleGenreSelect: setSelectedGenre,
+                handleDirectorSelect: setSelectedDirector
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 45,
+                lineNumber: 46,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -27419,7 +27421,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 58,
+                            lineNumber: 60,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27441,7 +27443,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 78,
+                            lineNumber: 80,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27464,7 +27466,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 97,
+                            lineNumber: 99,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27487,7 +27489,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 113,
+                            lineNumber: 115,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27499,7 +27501,7 @@ const MainView = ()=>{
                                 }, void 0, false, void 0, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                     children: "This List is Empty!"
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                    children: movies.filter((movie)=>!selectedGenre || movie.Genre?.Name === selectedGenre).map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    children: movies.filter((movie)=>!selectedGenre || movie.Genre?.Name === selectedGenre).filter((movie)=>!selectedDirector || movie.Director?.Name === selectedDirector).map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                             className: "mb-4",
                                             med: 3,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
@@ -27513,28 +27515,28 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 133,
+                            lineNumber: 135,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 57,
+                    lineNumber: 59,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 56,
+                lineNumber: 58,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 44,
+        lineNumber: 45,
         columnNumber: 7
     }, undefined);
 };
-_s(MainView, "p6lRN8xia4bjqK8AlqJsNU6abdU=");
+_s(MainView, "yJwBvTvVoxWYPbQ+/RxIJdpgoz8=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -47399,7 +47401,7 @@ var _navbar = require("react-bootstrap/Navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _reactRouterDom = require("react-router-dom");
 var _mdbReactUiKit = require("mdb-react-ui-kit");
-const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleGenreSelect })=>{
+const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleGenreSelect, handleDirectorSelect })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {
         expand: "lg",
         className: "bg-body-tertiary",
@@ -47541,15 +47543,27 @@ const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [], handleG
                                                         columnNumber: 21
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownMenu), {
-                                                        children: directors.map((d, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                        children: [
+                                                            directors.map((d, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
+                                                                    link: true,
+                                                                    onClick: ()=>handleDirectorSelect(d),
+                                                                    children: d
+                                                                }, index, false, {
+                                                                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                                                    lineNumber: 57,
+                                                                    columnNumber: 25
+                                                                }, undefined)),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mdbReactUiKit.MDBDropdownItem), {
                                                                 link: true,
-                                                                children: d
-                                                            }, index, false, {
+                                                                onClick: ()=>handleDirectorSelect(null),
+                                                                children: "All Directors"
+                                                            }, void 0, false, {
                                                                 fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                                                lineNumber: 57,
-                                                                columnNumber: 25
-                                                            }, undefined))
-                                                    }, void 0, false, {
+                                                                lineNumber: 59,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                                         lineNumber: 55,
                                                         columnNumber: 21
