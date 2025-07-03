@@ -12,7 +12,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem, } from 'mdb-react-ui-kit';
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, genres = [], directors = [] }) => {
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -37,21 +37,31 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                     Genres
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
-                      <MDBDropdownItem link>Action</MDBDropdownItem>
+                      {genres.map((g, index) => (
+                        <MDBDropdownItem key={index} link>{g}</MDBDropdownItem>
+                      ))}
+                      {/* <MDBDropdownItem link>Action</MDBDropdownItem>
                       <MDBDropdownItem link>Romantic Comedy </MDBDropdownItem>
                       <MDBDropdownItem link>Coming of Age</MDBDropdownItem>
                       <MDBDropdownItem link>Animation</MDBDropdownItem>
                       <MDBDropdownItem link>Adventure</MDBDropdownItem>
-                      <MDBDropdownItem link>Superhero</MDBDropdownItem>
+                      <MDBDropdownItem link>Superhero</MDBDropdownItem> */}
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
                   <MDBDropdown>
+                    <MDBDropdown>
                     <MDBDropdownToggle tag='a' className='nav-link' role='button'>
                       Directors
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
+                      {directors.map((d, index) => (
+                        <MDBDropdownItem key={index} link>{d}</MDBDropdownItem>
+                      ))}
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
+                  {/* <MDBDropdownMenu>
                       <MDBDropdownItem link>Mark Dindal</MDBDropdownItem>
                       <MDBDropdownItem link>Steven Sordergh</MDBDropdownItem>
                       <MDBDropdownItem link>Nancy Meyers</MDBDropdownItem>
@@ -61,7 +71,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                       <MDBDropdownItem link>Taika Waititi</MDBDropdownItem>
                       <MDBDropdownItem link>Robert Zemeckis</MDBDropdownItem>
                       <MDBDropdownItem link>Jon M Chu</MDBDropdownItem>
-                    </MDBDropdownMenu>
+                    </MDBDropdownMenu> */}
                   </MDBDropdown>
                 </MDBNavbarItem>
 
